@@ -1,6 +1,3 @@
-Certainly! Here’s a more concise version of the README, including the Installation and Usage sections, all formatted in Markdown:
-
-```markdown
 # 🥀 Perfume Image Scraper
 
 Welcome to the **Perfume Image Scraper**! 🌟 This tool allows fragrance enthusiasts to download user-uploaded pictures of perfumes from the Fragrantica website.
