@@ -1,94 +1,65 @@
-# 🥀 Perfume Image Scraper
+# Perfume Image Downloader
 
-Welcome to the **Perfume Image Scraper**! 🌟 This tool allows fragrance enthusiasts to download user-uploaded pictures of perfumes from the Fragrantica website.
+## Overview
 
-## 📚 Table of Contents
+This project is a Python script that downloads images of perfumes from Fragrantica based on a provided CSV file containing perfume names and their corresponding URLs. The images are saved in dedicated folders named after each perfume, with a specific naming convention.
 
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [How It Works](#how-it-works)
-- [Proxy Management](#proxy-management)
-- [Contributing](#contributing)
-- [License](#license)
+## Features
 
-## ✨ Features
+- Downloads images from Fragrantica for each perfume listed in a CSV file.
+- Creates a dedicated folder for each perfume, named in the format `Perfume_Name | Perfume_Alternate_Name`.
+- Implements a random wait time between requests to avoid overwhelming the server (between 2 to 5 minutes).
+- Uses BeautifulSoup for web scraping to extract image URLs.
+- Provides console logs to track progress and any errors encountered.
 
-- **Download Images**: Easily download images from Fragrantica. 📸
-- **User-Agent Rotation**: Mimic different browsers. 🦾
-- **Proxy Support**: Bypass restrictions. 🔒
-- **CSV Input**: Load perfume names and URLs. 📄
-- **Progress Tracking**: Monitor your downloads. ⏳
+## Requirements
 
-## 🛠 Requirements
+- Python 3.6 or higher
+- Required libraries:
+  - `requests`
+  - `beautifulsoup4`
+  - `tqdm`
 
-- Python packages: `requests`, `beautifulsoup4`, `tqdm`.
+## Installation
 
-Install them with:
+1. Clone the repository or download the script:
+   ```bash
+   git clone <repository_url>
+   cd perfume-image-downloader
+   ```
 
+2. Install the required libraries:
+   ```bash
+   pip install requests beautifulsoup4 tqdm
+   ```
+
+3. Prepare a CSV file named `name_url.csv` in the same directory, structured as follows:
+   ```csv
+   name_in_website,url
+   "Perfume Name 1","http://fragrantica.com/perfume-url-1"
+   "Perfume Name 2","http://fragrantica.com/perfume-url-2"
+   ```
+
+## Usage
+
+To run the script, execute the following command in your terminal:
 ```bash
-pip install requests beautifulsoup4 tqdm
+python perfume_image_downloader.py
 ```
 
-## 🚀 Installation
+The script will read the `name_url.csv` file, download the images from the specified URLs, and save them in dedicated folders.
 
-1. Clone the repository:
+## Folder Structure
 
-   ```bash
-   git clone https://github.com/yourusername/perfume-image-scraper.git
-   cd perfume-image-scraper
-   ```
-
-2. Place your `name_url.csv` and `proxies.txt` in the directory.
-
-## 📝 Usage
-
-1. Update the script with your CSV and proxy filenames:
-
-   ```python
-   csv_file = 'name_url.csv'
-   proxy_file = 'proxies.txt'
-   ```
-
-2. Run the scraper:
-
-   ```bash
-   python perfume_scraper.py
-   ```
-
-Images will be saved in the `perfume_images` directory. 🗂️
-
-## 🔍 How It Works
-
-1. **Load Proxies**: Reads the proxy list.
-2. **Test Proxies**: Validates each proxy.
-3. **Scrape Images**: Fetches image URLs.
-4. **Download Images**: Saves images organized by perfume name.
-
-## 🌐 Proxy Management
-
-Use reliable proxies in `proxies.txt`:
-
+The images will be saved in a directory called `perfume_images`. Each perfume will have its own folder, named in the format:
 ```
-http://proxy1:port
-http://proxy2:port
-https://proxy3:port
+Perfume_Name | Perfume_Alternate_Name
 ```
 
-## 🤝 Contributing
+## Logging
 
-Contributions are welcome! To contribute:
+The script provides detailed logging to the console, indicating the progress of image downloads and any errors encountered.
 
-1. Fork the repository. 🍴
-2. Create a branch. 🌳
-3. Push changes and submit a pull request. 📥
+## Contributing
 
-## 📜 License
-
-This project is licensed under the MIT License. Feel free to use and modify it.
-
----
-
-Thank you for using the **Perfume Image Scraper**! Happy scraping! 🎉
-```
+If you would like to contribute to this project, please fork the repository and submit a pull request.
